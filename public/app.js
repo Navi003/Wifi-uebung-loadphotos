@@ -1,5 +1,5 @@
 const URL = `127.0.0.1`;
-const data = {
+const dataStatic = {
   content: [
     {
       name: "learning",
@@ -33,16 +33,21 @@ const linkBtn = document.querySelector(".btn");
 const imageContainer = document.querySelector(".container");
 
 function imageboxHTMLCreater(imageInfo) {
+  console.log(imageInfo);
+  const month = new Date(imageInfo.lastModified).getMonth() + 1;
+  const day = new Date(imageInfo.lastModified).getDate();
+  const year = new Date(imageInfo.lastModified).getFullYear();
+
   const imgboxHTML = `
 <div class="image__box">
 <div class="image__box__main">
   <img class="image" src="${imageInfo.pfad}" />
 </div>
 <div class="content">
-  <h3 class="image-title">${imageInfo.name}</h3>
+  <h3 class="image-title">${imageInfo.fileName?.slice(0, 5)}</h3>
   <div class="info-container">
     <p>Modified :</p>
-    <p>${imageInfo.modified}</p>
+    <p class="date" ><span>${day} /</span><span>${month} /</span><span>${year}</span></p>
   </div>
 </div>
 </div>
@@ -56,13 +61,12 @@ linkBtn.addEventListener("click", async () => {
   try {
     const response = await fetch(`/photos`);
     const data = await response.json();
-
     console.log(data);
+
+    data.data.forEach((e) => {
+      imageContainer.insertAdjacentHTML("beforeend", imageboxHTMLCreater(e));
+    });
   } catch (error) {
     console.error(error);
   }
-
-  data.content.forEach((e) => {
-    imageContainer.insertAdjacentHTML("beforeend", imageboxHTMLCreater(e));
-  });
 });

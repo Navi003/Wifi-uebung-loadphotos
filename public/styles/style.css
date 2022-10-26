@@ -51,13 +51,15 @@ body {
 .section {
   width: 58rem;
   margin: 5rem auto;
-  background-color: #e7f4f2;
+  background-color: #8da7a3;
 
   padding: 2rem;
   display: flex;
   flex-direction: column-reverse;
   gap: 2rem;
   transition: 300ms;
+  -webkit-box-shadow: 6px 6px 8px -5px #878787;
+  box-shadow: 6px 6px 8px -5px #878787;
 }
 .section-title {
   padding-top: 2rem;
@@ -81,13 +83,22 @@ body {
   background-color: #083b34;
   padding: 0.5rem;
   color: #e7f4f2;
+  object-fit: cover;
+  -webkit-box-shadow: 6px 6px 8px -5px #878787;
+  box-shadow: 6px 6px 8px -5px #878787;
+  transition: 300ms;
+}
+.image__box:hover {
+  transform: scale(1.2);
 }
 .image {
   width: 100%;
+  height: 7rem;
 }
 .info-container {
   display: flex;
   gap: 1rem;
+  margin-top: 0.5rem;
   margin-top: 0.5rem;
 }
 .btn {
@@ -103,4 +114,12 @@ body {
   background-color: #e7f4f2;
   color: #083b34;
   cursor: pointer;
+}
+.content {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+}
+.date {
+  display: flex;
+  gap: 0.3rem;
 }
