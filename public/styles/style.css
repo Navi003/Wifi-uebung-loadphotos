@@ -141,3 +141,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.size {
+  display: flex;
+  justify-content: space-between;
+}

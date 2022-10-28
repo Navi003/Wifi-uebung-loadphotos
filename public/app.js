@@ -4,11 +4,26 @@ const linkBtn = document.querySelector(".btn-load");
 const linkBtnRemove = document.querySelector(".btn-remove");
 const imageContainer = document.querySelector(".container");
 const selectEL = document.querySelector(".select");
-function imageboxHTMLCreater(imageInfo) {
-  const month = new Date(imageInfo.lastModified).getMonth() + 1;
-  const day = new Date(imageInfo.lastModified).getDate();
-  const year = new Date(imageInfo.lastModified).getFullYear();
 
+const BytesConverter = function (bytes, decimals = 2) {
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+};
+
+const dateFormater = function (date) {
+  const month = new Date(date).getMonth() + 1;
+  const day = new Date(date).getDate();
+  const year = new Date(date).getFullYear();
+
+  return ` <p class="date" ><span>${day} /</span><span>${month} /</span><span>${year}</span></p>`;
+};
+
+function imageboxHTMLCreater(imageInfo) {
   const imgboxHTML = `
 <div class="image__box">
 <div class="image__box__main">
@@ -18,7 +33,11 @@ function imageboxHTMLCreater(imageInfo) {
   <h3 class="image-title">${imageInfo.fileName?.slice(0, 5)}</h3>
   <div class="info-container">
     <p>Modified :</p>
-    <p class="date" ><span>${day} /</span><span>${month} /</span><span>${year}</span></p>
+    ${dateFormater(imageInfo.lastModified)}
+   
+  </div>
+  <div class="size">
+  <span>Size:</span><span>${BytesConverter(imageInfo.filesize)}</span>
   </div>
 </div>
 </div>

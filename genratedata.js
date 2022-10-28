@@ -1,12 +1,13 @@
-const { readdirSync, statSync } = require("fs");
+const { readdir, stat } = require("fs/promises");
 
-const dataCollector = (folderPath = "first") => {
+const dataCollector = async (folderPath = "first") => {
   const PATH = `./public/images/${folderPath}`;
-  const fileNames = readdirSync(`${PATH}`);
+  const fileNames = await readdir(`${PATH}`);
+
   const fileInfos = [];
 
   for (const fileName of fileNames) {
-    const fileStats = statSync(`${PATH}/${fileName}`);
+    const fileStats = await stat(`${PATH}/${fileName}`);
     const fileInfo = {
       fileName,
       lastModified: fileStats.mtime,
@@ -18,5 +19,6 @@ const dataCollector = (folderPath = "first") => {
   console.log(fileInfos);
   return fileInfos;
 };
-dataCollector();
+// dataCollector().then((data) => (module.exports = data));
+// dataCollector();
 module.exports = dataCollector;
