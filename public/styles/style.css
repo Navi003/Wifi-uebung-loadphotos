@@ -123,3 +123,21 @@ body {
   display: flex;
   gap: 0.3rem;
 }
+.btn-remove {
+  background-color: #703930;
+}
+.select {
+  padding: 0.5rem;
+  background-color: #083b34;
+  border: none;
+  border: 3px solid #052521;
+  transition: 300ms;
+  text-decoration: none;
+  color: #e7f4f2;
+}
+.controlers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

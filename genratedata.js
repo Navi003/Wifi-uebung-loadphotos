@@ -1,9 +1,8 @@
 const { readdirSync, statSync } = require("fs");
 
-const PATH = `./public/images`;
-console.log(PATH);
-const dataCollector = () => {
-  const fileNames = readdirSync(PATH);
+const dataCollector = (folderPath = "first") => {
+  const PATH = `./public/images/${folderPath}`;
+  const fileNames = readdirSync(`${PATH}`);
   const fileInfos = [];
 
   for (const fileName of fileNames) {
@@ -12,11 +11,11 @@ const dataCollector = () => {
       fileName,
       lastModified: fileStats.mtime,
       filesize: fileStats.size,
-      pfad: `./images/${fileName}`,
+      pfad: `./images/${folderPath}/${fileName}`,
     };
     fileInfos.push(fileInfo);
   }
-  // console.log(fileInfos);
+  console.log(fileInfos);
   return fileInfos;
 };
 dataCollector();
