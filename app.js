@@ -4,17 +4,8 @@ const collector = require("./genratedata.js");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+app.use("/home", express.static("./home"));
 app.use("/", express.static("./public"));
-// app.use(express.static("./public"));
-// app.use((req, res, next) => {
-//   // console.log(req.method);
-//   // console.log(req.params);
-//   // console.log(req.query);
-//   // console.log(req.baseUrl);
-//   // console.log(req.param);
-// console.log(req.query);
-// });
-// console.log(typeof dataCollector);
 
 app.get("/images", async (req, res, next) => {
   console.log(req.query);
