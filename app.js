@@ -6,6 +6,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use("/", express.static("./public"));
+app.use("/photos", express.static("./public"));
+app.use("/home", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
+});
 
 app.get("/images", async (req, res, next) => {
   console.log(req.query);
@@ -16,6 +20,9 @@ app.get("/images", async (req, res, next) => {
     message: "ok",
     data: photos,
   });
+});
+app.use("*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "public", "404.html"));
 });
 
 app.listen(PORT, () => {

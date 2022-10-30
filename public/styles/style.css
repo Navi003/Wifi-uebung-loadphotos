@@ -145,3 +145,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.active {
+  border-bottom: 5px solid rgb(158, 143, 6);
+}

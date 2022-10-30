@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pflichtuebnug</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script type="module" defer src="app.js"></script>
+  </head>
+
+  <style>
+    body {
+      font-size: 62.5%;
+      padding: 0;
+      margin: 0;
+    }
+    
+    * {
+      font-family: sans-serif;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    
+    /* Navbar */
+    
+    .navbar {
+      width: 100%;
+      background-color: #139481;
+      padding: 0 3rem 0 0;
+      height: 3rem;
+      display: flex;
+      justify-content: right;
+    }
+    .navbar__list {
+      display: flex;
+      width: 10rem;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      list-style: none;
+      height: 100%;
+    }
+    .navbar__list_link {
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: #041e1a;
+    }
+    .navbar__list_item {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: 300ms;
+    }
+    .navbar__list_item:hover {
+      background-color: rgba(255, 255, 255, 0.488);
+    }
+
+    .active {
+        border-bottom: 5px solid rgb(158, 143, 6)
+      }
+    
+    h1 {
+
+      text-align: center;
+      font-size: 5.4rem;
+      margin-top: 20%;
+    }
+
+  </style>
+
+  <body>
+    <header id="header">
+      <nav class="navbar">
+        <ul class="navbar__list">
+          <li class="navbar__list_item">
+            <a class="navbar__list_link active" href="/home">Home</a>
+          </li>
+          <li class="navbar__list_item">
+            <a class="navbar__list_link" href="/photos">Photos</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="section" id="section">
+       <h1>Home Page</h1>
+          </select>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
