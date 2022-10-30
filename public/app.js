@@ -1,5 +1,3 @@
-const URL = `127.0.0.1`;
-
 const linkBtn = document.querySelector(".btn-load");
 const linkBtnRemove = document.querySelector(".btn-remove");
 const imageContainer = document.querySelector(".container");

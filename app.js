@@ -1,12 +1,11 @@
 const express = require("express");
 // const fs = require("fs/promises");
 const collector = require("./genratedata.js");
+const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use("/home", express.static("./home"));
 app.use("/", express.static("./public"));
-app.use("/photos", express.static("./public"));
 
 app.get("/images", async (req, res, next) => {
   console.log(req.query);
