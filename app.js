@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use("/home", express.static("./home"));
 app.use("/", express.static("./public"));
+app.use("/photos", express.static("./public"));
 
 app.get("/images", async (req, res, next) => {
   console.log(req.query);
