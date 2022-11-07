@@ -39,15 +39,26 @@ function imageboxHTMLCreater(imageInfo) {
   </div>
 </div>
 </div>
-
 `;
 
   return imgboxHTML;
 }
 
+const errors = (error) => {
+  console.log(error);
+  const html = `
+  <section class="section" id="section">
+  <h1>${error.message}</h1>
+     </select>
+   </div>
+   <a class="goback" href="/">Go back</a>
+ </section>
+  `;
+  return html;
+};
+
 linkBtn.addEventListener("click", async () => {
   try {
-    console.log(selectEL.value);
     const response = await fetch(`/images/?folder=${selectEL.value}`);
     const data = await response.json();
 

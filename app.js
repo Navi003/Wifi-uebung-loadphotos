@@ -5,24 +5,34 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+/* 
+rendering pages based on URL
+*/
 app.use("/", express.static("./public"));
 app.use("/photos", express.static("./public"));
 app.use("/home", (req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 
+/* 
+/images endpoint Handling 
+can handle images/?folder=first || second
+*/
 app.get("/images", async (req, res, next) => {
-  console.log(req.query);
   const photos = await collector(req.query.folder);
-  // console.log(typeof photos)
-  // console.log(data);
   res.status(200).json({
-    message: "ok",
+    message: "Sucess",
+    response: "ok",
     data: photos,
   });
 });
+
 app.use("*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "public", "404.html"));
+  res.status(404).json({
+    message: "This Route is not defined",
+    response: "Fail",
+    data: null,
+  });
 });
 
 app.listen(PORT, () => {

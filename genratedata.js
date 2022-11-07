@@ -16,7 +16,7 @@ const dataCollector = async (folderPath = "first") => {
     };
     fileInfos.push(fileInfo);
   }
-  console.log(fileInfos);
+
   return fileInfos;
 };
 // dataCollector().then((data) => (module.exports = data));
