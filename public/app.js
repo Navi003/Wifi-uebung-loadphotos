@@ -63,6 +63,7 @@ linkBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     imageContainer.innerHTML = "";
+
     data.data.forEach((e) => {
       imageContainer.insertAdjacentHTML("beforeend", imageboxHTMLCreater(e));
     });

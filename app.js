@@ -8,11 +8,8 @@ const PORT = process.env.PORT || 8000;
 /* 
 rendering pages based on URL
 */
-app.use("/", express.static("./public"));
-app.use("/photos", express.static("./public"));
-app.use("/home", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "public", "home.html"));
-});
+app.use(express.static("./public"));
+// app.use("/photos", express.static("./public"));
 
 /* 
 /images endpoint Handling 
